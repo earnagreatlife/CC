@@ -1,0 +1,41 @@
+name: Day-trade backtest (real Alpaca data)
+
+on:
+  push:
+    paths: ["daytrade/**", ".github/workflows/daytrade-backtest.yml"]
+  workflow_dispatch:
+    inputs:
+      years:
+        description: "Years of history"
+        default: "2"
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      ALPACA_KEY: ${{ secrets.ALPACA_KEY }}
+      ALPACA_SECRET: ${{ secrets.ALPACA_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy requests
+      - name: Check secrets
+        run: |
+          if [ -z "$ALPACA_KEY" ] || [ -z "$ALPACA_SECRET" ]; then
+            echo "::error::Add ALPACA_KEY and ALPACA_SECRET in Settings -> Secrets and variables -> Actions"
+            exit 1
+          fi
+      - name: Backtest
+        working-directory: daytrade
+        run: python3 backtest_orb.py --years "${{ inputs.years || '2' }}"
+      - name: Publish summary
+        if: always()
+        run: cat daytrade/results/BACKTEST.md >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backtest-results
+          path: daytrade/results/
