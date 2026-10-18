@@ -1,0 +1,258 @@
+######## SP500_1999-2018 
+Walk-forward: train 3y -> trade 1y | 25 combos | vol target off | costs 5 bps
+Out-of-sample period: 2002-01-04 -> 2018-12-31
+
+Picks (chosen using only prior data):
+  2002-01-04  rsi 35/50        train score  0.33
+  2003-01-04  rsi 25/55        train score  0.51
+  2004-01-04  sma 50/200       train score  1.24
+  2005-01-04  breakout 100/50  train score  1.40
+  2006-01-04  rsi 30/55        train score  1.32
+  2007-01-04  rsi 30/50        train score  2.00
+  2008-01-04  rsi 35/50        train score  1.26
+  2009-01-04  sma 50/200       train score  0.39
+  2010-01-04  sma 50/200       train score  0.92
+  2011-01-04  breakout 100/20  train score  1.29
+  2012-01-04  sma 50/100       train score  0.97
+  2013-01-04  breakout 20/10   train score  1.06
+  2014-01-04  sma 50/150       train score  1.20
+  2015-01-04  rsi 35/65        train score  2.27
+  2016-01-04  sma 50/100       train score  1.47
+  2017-01-04  rsi 35/65        train score  1.62
+  2018-01-04  breakout 100/50  train score  1.39
+
+                            CAGR   MaxDD    Vol  Sharpe  Yrs>0  Worst yr
+Walk-forward adaptive      +2.3%  -30.1%  12.5%    0.25    59%    -10.8%
+Ensemble (all combos)      +3.2%  -13.5%   7.0%    0.48    65%     -4.2%
+Static SMA 50/200          +6.5%  -20.3%  11.4%    0.61    65%     -6.3%
+Buy & hold                 +4.6%  -56.8%  18.8%    0.33    71%    -38.5%
+
+Calendar-year returns:
+     Walk-forward adaptive Ensemble (all combos) Static SMA 50/200 Buy & hold
+date                                                                         
+2002                -10.8%                 -4.2%             +0.0%     -24.5%
+2003                 +0.0%                 +8.8%            +18.3%     +26.4%
+2004                 +2.5%                 +3.9%             +2.3%      +9.0%
+2005                 -7.3%                 -1.6%             +3.0%      +3.0%
+2006                 +2.4%                 +4.7%             +8.9%     +13.6%
+2007                 +0.8%                 -0.6%             +4.6%      +3.5%
+2008                +16.7%                 -3.9%             +0.0%     -38.5%
+2009                +24.3%                +11.5%            +24.3%     +23.5%
+2010                 -2.2%                 +3.2%             -2.2%     +12.8%
+2011                 -0.7%                 -0.0%             -6.3%      -0.0%
+2012                 +3.3%                 +5.8%             +8.6%     +13.4%
+2013                 +9.6%                +12.6%            +29.6%     +29.6%
+2014                +11.4%                 +4.3%            +11.4%     +11.4%
+2015                 +4.7%                 -2.0%             -2.6%      -0.7%
+2016                 -4.5%                 +3.2%             +0.9%      +9.5%
+2017                 +1.0%                +10.0%            +19.4%     +19.4%
+2018                 -5.7%                 +0.2%             -1.6%      -6.2%
+
+######## SP500_1999-2018 --vol-target 0.12
+Walk-forward: train 3y -> trade 1y | 25 combos | vol target 0.12 | costs 5 bps
+Out-of-sample period: 2002-01-04 -> 2018-12-31
+
+Picks (chosen using only prior data):
+  2002-01-04  rsi 35/50        train score  0.33
+  2003-01-04  rsi 25/55        train score  0.51
+  2004-01-04  sma 50/200       train score  1.24
+  2005-01-04  breakout 100/50  train score  1.40
+  2006-01-04  rsi 30/55        train score  1.32
+  2007-01-04  rsi 30/50        train score  2.00
+  2008-01-04  rsi 35/50        train score  1.26
+  2009-01-04  sma 50/200       train score  0.39
+  2010-01-04  sma 50/200       train score  0.92
+  2011-01-04  breakout 100/20  train score  1.29
+  2012-01-04  sma 50/100       train score  0.97
+  2013-01-04  breakout 20/10   train score  1.06
+  2014-01-04  sma 50/150       train score  1.20
+  2015-01-04  rsi 35/65        train score  2.27
+  2016-01-04  sma 50/100       train score  1.47
+  2017-01-04  rsi 35/65        train score  1.62
+  2018-01-04  breakout 100/50  train score  1.39
+
+                            CAGR   MaxDD    Vol  Sharpe  Yrs>0  Worst yr
+Walk-forward adaptive      +1.0%  -14.3%   7.8%    0.16    65%     -7.3%
+Ensemble (all combos)      +2.3%   -8.8%   5.0%    0.47    59%     -3.8%
+Static SMA 50/200          +6.5%  -20.3%  11.4%    0.61    65%     -6.3%
+Buy & hold                 +4.6%  -56.8%  18.8%    0.33    71%    -38.5%
+
+Calendar-year returns:
+     Walk-forward adaptive Ensemble (all combos) Static SMA 50/200 Buy & hold
+date                                                                         
+2002                 -6.1%                 -3.8%             +0.0%     -24.5%
+2003                 +0.0%                 +7.1%            +18.3%     +26.4%
+2004                 +1.7%                 +3.5%             +2.3%      +9.0%
+2005                 -7.3%                 -1.9%             +3.0%      +3.0%
+2006                 +2.3%                 +4.7%             +8.9%     +13.6%
+2007                 +0.4%                 -1.2%             +4.6%      +3.5%
+2008                 +3.3%                 -2.3%             +0.0%     -38.5%
+2009                +12.4%                 +5.1%            +24.3%     +23.5%
+2010                 +2.0%                 +3.9%             -2.2%     +12.8%
+2011                 -0.3%                 -1.0%             -6.3%      -0.0%
+2012                 +2.1%                 +4.2%             +8.6%     +13.4%
+2013                 +7.9%                +11.0%            +29.6%     +29.6%
+2014                 +7.4%                 +2.7%            +11.4%     +11.4%
+2015                 +2.2%                 -2.9%             -2.6%      -0.7%
+2016                 -5.4%                 +2.2%             +0.9%      +9.5%
+2017                 +1.0%                +10.0%            +19.4%     +19.4%
+2018                 -5.4%                 -0.9%             -1.6%      -6.2%
+
+######## NASDAQ_1999-2018 
+Walk-forward: train 3y -> trade 1y | 25 combos | vol target off | costs 5 bps
+Out-of-sample period: 2002-01-04 -> 2018-12-31
+
+Picks (chosen using only prior data):
+  2002-01-04  breakout 100/20  train score  0.77
+  2003-01-04  rsi 30/50        train score  0.49
+  2004-01-04  sma 100/150      train score  0.77
+  2005-01-04  sma 100/150      train score  0.75
+  2006-01-04  rsi 30/50        train score  1.66
+  2007-01-04  rsi 30/50        train score  0.67
+  2008-01-04  rsi 35/50        train score  0.99
+  2009-01-04  sma 20/200       train score  0.20
+  2010-01-04  sma 20/200       train score  0.77
+  2011-01-04  breakout 100/20  train score  1.95
+  2012-01-04  breakout 100/20  train score  1.31
+  2013-01-04  rsi 35/50        train score  1.39
+  2014-01-04  sma 50/150       train score  0.91
+  2015-01-04  rsi 30/65        train score  2.27
+  2016-01-04  sma 100/200      train score  1.33
+  2017-01-04  rsi 35/65        train score  1.38
+  2018-01-04  sma 100/200      train score  1.08
+
+                            CAGR   MaxDD    Vol  Sharpe  Yrs>0  Worst yr
+Walk-forward adaptive      +1.0%  -51.0%  13.7%    0.14    53%    -34.5%
+Ensemble (all combos)      +4.2%  -22.3%   8.5%    0.53    76%    -12.6%
+Static SMA 50/200          +7.1%  -24.6%  13.9%    0.57    65%    -11.5%
+Buy & hold                 +7.2%  -55.6%  21.4%    0.43    76%    -40.5%
+
+Calendar-year returns:
+     Walk-forward adaptive Ensemble (all combos) Static SMA 50/200 Buy & hold
+date                                                                         
+2002                 -6.0%                 -9.1%            -11.5%     -34.7%
+2003                 +0.0%                +20.8%            +47.3%     +50.0%
+2004                 -0.5%                 +4.1%             +2.9%      +8.6%
+2005                 -7.6%                 -0.6%             -4.1%      +1.4%
+2006                 +0.2%                 +2.0%             -0.7%      +9.5%
+2007                 +3.9%                 +2.5%             +9.8%      +9.8%
+2008                -34.5%                -12.6%            -10.9%     -40.5%
+2009                +35.2%                +20.2%            +23.5%     +43.9%
+2010                +10.2%                 +6.2%             +6.6%     +16.9%
+2011                 -1.9%                 -0.4%             -5.0%      -1.8%
+2012                 +4.3%                 +5.9%             +5.3%     +15.9%
+2013                 +0.0%                +14.3%            +34.1%     +38.3%
+2014                +14.4%                 +5.3%            +13.4%     +13.4%
+2015                +14.6%                 +2.0%             -4.4%      +5.7%
+2016                 +6.3%                 +0.6%             +1.7%      +7.5%
+2017                 +1.0%                +14.1%            +28.2%     +28.2%
+2018                 -6.5%                 +1.8%             +3.3%      -3.9%
+
+######## NASDAQ_1999-2018 --vol-target 0.12
+Walk-forward: train 3y -> trade 1y | 25 combos | vol target 0.12 | costs 5 bps
+Out-of-sample period: 2002-01-04 -> 2018-12-31
+
+Picks (chosen using only prior data):
+  2002-01-04  breakout 100/20  train score  0.77
+  2003-01-04  rsi 30/50        train score  0.49
+  2004-01-04  sma 100/150      train score  0.77
+  2005-01-04  sma 100/150      train score  0.75
+  2006-01-04  rsi 30/50        train score  1.66
+  2007-01-04  rsi 30/50        train score  0.67
+  2008-01-04  rsi 35/50        train score  0.99
+  2009-01-04  sma 20/200       train score  0.20
+  2010-01-04  sma 20/200       train score  0.77
+  2011-01-04  breakout 100/20  train score  1.95
+  2012-01-04  breakout 100/20  train score  1.31
+  2013-01-04  rsi 35/50        train score  1.39
+  2014-01-04  sma 50/150       train score  0.91
+  2015-01-04  rsi 30/65        train score  2.27
+  2016-01-04  sma 100/200      train score  1.33
+  2017-01-04  rsi 35/65        train score  1.38
+  2018-01-04  sma 100/200      train score  1.08
+
+                            CAGR   MaxDD    Vol  Sharpe  Yrs>0  Worst yr
+Walk-forward adaptive      +1.4%  -23.2%   7.8%    0.22    53%     -9.8%
+Ensemble (all combos)      +2.9%   -9.1%   5.7%    0.53    59%     -4.6%
+Static SMA 50/200          +7.1%  -24.6%  13.9%    0.57    65%    -11.5%
+Buy & hold                 +7.2%  -55.6%  21.4%    0.43    76%    -40.5%
+
+Calendar-year returns:
+     Walk-forward adaptive Ensemble (all combos) Static SMA 50/200 Buy & hold
+date                                                                         
+2002                 -2.1%                 -4.0%            -11.5%     -34.7%
+2003                 +0.0%                +11.5%            +47.3%     +50.0%
+2004                 -0.4%                 +3.3%             +2.9%      +8.6%
+2005                 -9.8%                 -1.8%             -4.1%      +1.4%
+2006                 +0.2%                 +1.8%             -0.7%      +9.5%
+2007                 +2.3%                 +1.8%             +9.8%      +9.8%
+2008                 -9.7%                 -4.6%            -10.9%     -40.5%
+2009                +16.1%                 +8.2%            +23.5%     +43.9%
+2010                +10.5%                 +6.1%             +6.6%     +16.9%
+2011                 -2.0%                 -0.9%             -5.0%      -1.8%
+2012                 +4.6%                 +4.6%             +5.3%     +15.9%
+2013                 +0.0%                +11.2%            +34.1%     +38.3%
+2014                 +9.0%                 +2.8%            +13.4%     +13.4%
+2015                 +8.8%                 -1.3%             -4.4%      +5.7%
+2016                 +5.0%                 -0.6%             +1.7%      +7.5%
+2017                 +1.0%                +13.6%            +28.2%     +28.2%
+2018                 -5.2%                 -0.2%             +3.3%      -3.9%
+
+######## GOOG_2004-2013 
+Walk-forward: train 3y -> trade 1y | 25 combos | vol target off | costs 5 bps
+Out-of-sample period: 2007-08-20 -> 2013-03-01
+
+Picks (chosen using only prior data):
+  2007-08-19  buy&hold         train score  2.48
+  2008-08-19  breakout 100/10  train score  1.17
+  2009-08-19  breakout 100/10  train score  0.58
+  2010-08-19  breakout 100/20  train score  1.00
+  2011-08-19  breakout 100/50  train score  1.19
+  2012-08-19  rsi 25/50        train score  1.87
+
+                            CAGR   MaxDD    Vol  Sharpe  Yrs>0  Worst yr
+Walk-forward adaptive      +1.0%  -44.2%  20.5%    0.15    43%    -29.1%
+Ensemble (all combos)      +3.3%  -37.2%  13.1%    0.31    57%    -28.9%
+Static SMA 50/200          +1.0%  -42.7%  19.1%    0.15    43%    -35.6%
+Buy & hold                 +9.0%  -65.3%  34.4%    0.42    71%    -55.5%
+
+Calendar-year returns:
+     Walk-forward adaptive Ensemble (all combos) Static SMA 50/200 Buy & hold
+date                                                                         
+2007                +37.6%                +18.8%            +38.3%     +38.3%
+2008                -29.1%                -28.9%            -35.6%     -55.5%
+2009                +17.3%                +34.0%            +57.0%    +101.5%
+2010                 +6.9%                 -0.2%            -25.2%      -4.2%
+2011                 -7.3%                 -1.3%             -5.1%      +8.7%
+2012                 -6.7%                 +1.2%             -6.3%      +9.5%
+2013                 +0.0%                 +6.1%            +14.0%     +14.0%
+
+######## GOOG_2004-2013 --vol-target 0.12
+Walk-forward: train 3y -> trade 1y | 25 combos | vol target 0.12 | costs 5 bps
+Out-of-sample period: 2007-08-20 -> 2013-03-01
+
+Picks (chosen using only prior data):
+  2007-08-19  buy&hold         train score  2.48
+  2008-08-19  breakout 100/10  train score  1.17
+  2009-08-19  breakout 100/10  train score  0.58
+  2010-08-19  breakout 100/20  train score  1.00
+  2011-08-19  breakout 100/50  train score  1.19
+  2012-08-19  rsi 25/50        train score  1.87
+
+                            CAGR   MaxDD    Vol  Sharpe  Yrs>0  Worst yr
+Walk-forward adaptive      +1.5%  -20.5%   9.1%    0.21    43%    -14.3%
+Ensemble (all combos)      +3.2%  -13.6%   6.2%    0.54    57%    -10.0%
+Static SMA 50/200          +1.0%  -42.7%  19.1%    0.15    43%    -35.6%
+Buy & hold                 +9.0%  -65.3%  34.4%    0.42    71%    -55.5%
+
+Calendar-year returns:
+     Walk-forward adaptive Ensemble (all combos) Static SMA 50/200 Buy & hold
+date                                                                         
+2007                +21.8%                +11.1%            +38.3%     +38.3%
+2008                -14.3%                -10.0%            -35.6%     -55.5%
+2009                +11.7%                +17.4%            +57.0%    +101.5%
+2010                 +2.1%                 -1.8%            -25.2%      -4.2%
+2011                 -6.6%                 -1.9%             -5.1%      +8.7%
+2012                 -2.2%                 +1.7%             -6.3%      +9.5%
+2013                 +0.0%                 +3.3%            +14.0%     +14.0%
+

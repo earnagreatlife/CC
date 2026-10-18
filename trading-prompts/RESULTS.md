@@ -41,3 +41,43 @@ answer that reports a 70%+ win rate without running code like this should be tre
 - `journal_stats.py` needs your actual trade log. Nothing here is fabricated to stand in for it.
 - Data after 2018: the market-data sites (Yahoo, Stooq, FRED) are blocked from this build environment.
   Drop a fresh CSV into `data/` and rerun.
+
+---
+
+# Round 2: The "Dynamic Algo" (walk-forward adaptive)
+
+`walkforward.py` tests the idea that an algorithm adapting to history can be accurate and consistent.
+Each year it scores **28 strategy/parameter combos** (SMA, RSI, breakout, buy & hold) on the prior
+3 years only, then trades the winner over the next year, which it has never seen. Every number below is out-of-sample.
+It's compared against an **equal-weight ensemble** (all 27 non-buy-and-hold combos averaged, with no selection), the plain 50/200 SMA and buy & hold.
+The engine was cross-checked against `backtest.py`: it reproduces the same +221.5% / −20.3% on S&P 500 SMA 50/200.
+
+| Data (OOS years) | System | CAGR | Max DD | Sharpe | Worst year |
+|---|---|---|---|---|---|
+| S&P 500 2002–18 | **Adaptive** | +2.3% | −30.1% | 0.25 | −10.8% |
+| | Ensemble | +3.2% | −13.5% | 0.48 | −4.2% |
+| | SMA 50/200 | +6.5% | −20.3% | 0.61 | −6.3% |
+| | Buy & hold | +4.6% | −56.8% | 0.33 | −38.5% |
+| NASDAQ 2002–18 | **Adaptive** | +1.0% | −51.0% | 0.14 | −34.5% |
+| | Ensemble | +4.2% | −22.3% | 0.53 | −12.6% |
+| | SMA 50/200 | +7.1% | −24.6% | 0.57 | −11.5% |
+| | Buy & hold | +7.2% | −55.6% | 0.43 | −40.5% |
+| GOOG 2007–13 | **Adaptive** | +1.0% | −44.2% | 0.15 | −29.1% |
+| | Ensemble | +3.3% | −37.2% | 0.31 | −28.9% |
+| | SMA 50/200 | +1.0% | −42.7% | 0.15 | −35.6% |
+| | Buy & hold | +9.0% | −65.3% | 0.42 | −55.5% |
+
+With 12% volatility targeting (`--vol-target 0.12`), drawdowns shrink a lot (ensemble: −8.8% / −9.1% / −13.6%)
+and returns fall roughly in proportion. Full output: `data/walkforward_output.txt`.
+
+## Verdict
+
+1. **The dynamic selector was the worst or tied-worst system on all 3 datasets.** Choosing last period's
+   winner is performance chasing: the picks change almost every year (see the log) and keep buying high.
+2. **Not choosing beats choosing.** The ensemble had about half the adaptive system's drawdown and a higher Sharpe on all 3.
+3. **Nothing beat buy & hold on raw return over the full period,** except the SMA on the S&P (+6.5% vs +4.6%), and that rule
+   was famous before this test, so it's partly a hindsight pick.
+4. **What's achievable:** much smaller losses for similar or lower return. Max drawdown drops from −57% to between −9% and −20%.
+   "Amazingly accurate" is not achievable. Any backtest showing that has leaked future data or been overfit.
+5. **Trap to avoid:** a 5-year training window looks better on the S&P (+4.9%). Picking that window *after seeing the result*
+   is the same overfitting all over again. The defaults were fixed before the run.
