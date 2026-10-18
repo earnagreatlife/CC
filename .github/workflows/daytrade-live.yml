@@ -1,0 +1,59 @@
+name: Day-trade bot (paper)
+
+# Two crons per job cover US daylight saving time. The bot checks the market clock
+# and skips duplicate or late runs, so the extra run is harmless.
+on:
+  schedule:
+    - cron: "45 12 * * 1-5"   # open job: 8:45 ET (EDT) / 7:45 ET (EST)
+    - cron: "45 13 * * 1-5"   # open job: 8:45 ET (EST) / 9:45 ET (EDT -> skipped as late)
+    - cron: "30 19 * * 1-5"   # close job: 15:30 ET (EDT) / 14:30 ET (EST)
+    - cron: "30 20 * * 1-5"   # close job: 15:30 ET (EST) / 16:30 ET (EDT -> skipped)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "open | close | flatten (emergency: close everything now)"
+        type: choice
+        options: [flatten, open, close]
+        default: flatten
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daytrade-live
+  cancel-in-progress: false
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      ALPACA_KEY: ${{ secrets.ALPACA_KEY }}
+      ALPACA_SECRET: ${{ secrets.ALPACA_SECRET }}
+      ALPACA_LIVE: ${{ secrets.ALPACA_LIVE }}   # leave unset = paper trading
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy requests
+      - name: Pick mode
+        id: mode
+        run: |
+          if [ -n "${{ inputs.mode }}" ]; then m="${{ inputs.mode }}";
+          elif [ "${{ github.event.schedule }}" = "45 12 * * 1-5" ] || [ "${{ github.event.schedule }}" = "45 13 * * 1-5" ]; then m=open;
+          else m=close; fi
+          echo "mode=$m" >> "$GITHUB_OUTPUT"
+      - name: Run bot
+        working-directory: daytrade
+        run: python3 bot.py "${{ steps.mode.outputs.mode }}"
+      - name: Commit journal
+        if: always()
+        run: |
+          git config user.name "daytrade-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add daytrade/journal 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "Day-trade journal $(date -u +%F) (${{ steps.mode.outputs.mode }})"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

@@ -1,0 +1,281 @@
+################ SP500_1999-2018
+Strategy: sma | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 1999-01-04 -> 2012-12-31 (3521 bars) ==
+  Total return                +92.9%
+  CAGR                        +4.81%
+  Max drawdown                -20.3%
+  CAGR / MaxDD                0.24
+  Sharpe (daily, rf=0)        0.46
+  Trades                      8
+  Win rate                    87.5%
+  Profit factor               117.84
+  Avg win / avg loss          +10.03% / -0.60%
+  Exposure (time in market)   57%
+  Buy & hold return / CAGR    +16.1% / +1.07%
+  Buy & hold max drawdown     -56.8%
+  WARNING: only 8 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2013-01-02 -> 2018-12-31 (1510 bars) ==
+  Total return                +62.5%
+  CAGR                        +8.44%
+  Max drawdown                -15.1%
+  CAGR / MaxDD                0.56
+  Sharpe (daily, rf=0)        0.77
+  Trades                      3
+  Win rate                    66.7%
+  Profit factor               12.79
+  Avg win / avg loss          +30.74% / -4.81%
+  Exposure (time in market)   89%
+  Buy & hold return / CAGR    +71.4% / +9.41%
+  Buy & hold max drawdown     -19.8%
+  WARNING: only 3 trades - not statistically meaningful.
+Strategy: rsi | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 1999-01-04 -> 2012-12-31 (3521 bars) ==
+  Total return                +24.7%
+  CAGR                        +1.59%
+  Max drawdown                -27.9%
+  CAGR / MaxDD                0.06
+  Sharpe (daily, rf=0)        0.18
+  Trades                      18
+  Win rate                    72.2%
+  Profit factor               2.12
+  Avg win / avg loss          +3.53% / -4.33%
+  Exposure (time in market)   15%
+  Buy & hold return / CAGR    +16.1% / +1.07%
+  Buy & hold max drawdown     -56.8%
+  WARNING: only 18 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2013-01-02 -> 2018-12-31 (1510 bars) ==
+  Total return                +24.3%
+  CAGR                        +3.69%
+  Max drawdown                -6.2%
+  CAGR / MaxDD                0.60
+  Sharpe (daily, rf=0)        0.55
+  Trades                      8
+  Win rate                    100.0%
+  Profit factor               inf
+  Avg win / avg loss          n/a
+  Exposure (time in market)   8%
+  Buy & hold return / CAGR    +71.4% / +9.41%
+  Buy & hold max drawdown     -19.8%
+  WARNING: only 8 trades - not statistically meaningful.
+Strategy: breakout | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 1999-01-04 -> 2012-12-31 (3521 bars) ==
+  Total return                -11.3%
+  CAGR                        -0.85%
+  Max drawdown                -34.2%
+  CAGR / MaxDD                -0.02
+  Sharpe (daily, rf=0)        -0.06
+  Trades                      30
+  Win rate                    33.3%
+  Profit factor               0.88
+  Avg win / avg loss          +6.00% / -3.39%
+  Exposure (time in market)   37%
+  Buy & hold return / CAGR    +16.1% / +1.07%
+  Buy & hold max drawdown     -56.8%
+
+== OUT-OF-SAMPLE: 2013-01-02 -> 2018-12-31 (1510 bars) ==
+  Total return                +1.5%
+  CAGR                        +0.24%
+  Max drawdown                -18.3%
+  CAGR / MaxDD                0.01
+  Sharpe (daily, rf=0)        0.07
+  Trades                      18
+  Win rate                    38.9%
+  Profit factor               1.11
+  Avg win / avg loss          +3.21% / -1.84%
+  Exposure (time in market)   56%
+  Buy & hold return / CAGR    +71.4% / +9.41%
+  Buy & hold max drawdown     -19.8%
+  WARNING: only 18 trades - not statistically meaningful.
+################ NASDAQ_1999-2018
+Strategy: sma | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 1999-01-04 -> 2012-12-31 (3521 bars) ==
+  Total return                +134.2%
+  CAGR                        +6.27%
+  Max drawdown                -37.3%
+  CAGR / MaxDD                0.17
+  Sharpe (daily, rf=0)        0.47
+  Trades                      9
+  Win rate                    77.8%
+  Profit factor               6.80
+  Avg win / avg loss          +17.36% / -8.94%
+  Exposure (time in market)   53%
+  Buy & hold return / CAGR    +36.8% / +2.26%
+  Buy & hold max drawdown     -77.9%
+  WARNING: only 9 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2013-01-02 -> 2018-12-31 (1510 bars) ==
+  Total return                +96.0%
+  CAGR                        +11.88%
+  Max drawdown                -24.6%
+  CAGR / MaxDD                0.48
+  Sharpe (daily, rf=0)        0.88
+  Trades                      3
+  Win rate                    66.7%
+  Profit factor               8.84
+  Avg win / avg loss          +48.37% / -10.94%
+  Exposure (time in market)   89%
+  Buy & hold return / CAGR    +113.2% / +13.46%
+  Buy & hold max drawdown     -23.6%
+  WARNING: only 3 trades - not statistically meaningful.
+Strategy: rsi | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 1999-01-04 -> 2012-12-31 (3521 bars) ==
+  Total return                -13.7%
+  CAGR                        -1.05%
+  Max drawdown                -48.9%
+  CAGR / MaxDD                -0.02
+  Sharpe (daily, rf=0)        0.04
+  Trades                      18
+  Win rate                    61.1%
+  Profit factor               0.87
+  Avg win / avg loss          +4.81% / -8.65%
+  Exposure (time in market)   17%
+  Buy & hold return / CAGR    +36.8% / +2.26%
+  Buy & hold max drawdown     -77.9%
+  WARNING: only 18 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2013-01-02 -> 2018-12-31 (1510 bars) ==
+  Total return                +27.7%
+  CAGR                        +4.16%
+  Max drawdown                -10.7%
+  CAGR / MaxDD                0.39
+  Sharpe (daily, rf=0)        0.56
+  Trades                      6
+  Win rate                    83.3%
+  Profit factor               28.89
+  Avg win / avg loss          +5.25% / -0.91%
+  Exposure (time in market)   9%
+  Buy & hold return / CAGR    +113.2% / +13.46%
+  Buy & hold max drawdown     -23.6%
+  WARNING: only 6 trades - not statistically meaningful.
+Strategy: breakout | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 1999-01-04 -> 2012-12-31 (3521 bars) ==
+  Total return                +110.3%
+  CAGR                        +5.46%
+  Max drawdown                -40.2%
+  CAGR / MaxDD                0.14
+  Sharpe (daily, rf=0)        0.47
+  Trades                      26
+  Win rate                    53.8%
+  Profit factor               2.59
+  Avg win / avg loss          +10.61% / -4.78%
+  Exposure (time in market)   41%
+  Buy & hold return / CAGR    +36.8% / +2.26%
+  Buy & hold max drawdown     -77.9%
+  WARNING: only 26 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2013-01-02 -> 2018-12-31 (1510 bars) ==
+  Total return                -8.0%
+  CAGR                        -1.39%
+  Max drawdown                -26.6%
+  CAGR / MaxDD                -0.05
+  Sharpe (daily, rf=0)        -0.10
+  Trades                      22
+  Win rate                    45.5%
+  Profit factor               0.83
+  Avg win / avg loss          +3.26% / -3.26%
+  Exposure (time in market)   63%
+  Buy & hold return / CAGR    +113.2% / +13.46%
+  Buy & hold max drawdown     -23.6%
+  WARNING: only 22 trades - not statistically meaningful.
+################ GOOG_2004-2013
+Strategy: sma | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 2004-08-19 -> 2010-08-06 (1503 bars) ==
+  Total return                +69.7%
+  CAGR                        +9.27%
+  Max drawdown                -40.2%
+  CAGR / MaxDD                0.23
+  Sharpe (daily, rf=0)        0.50
+  Trades                      3
+  Win rate                    100.0%
+  Profit factor               inf
+  Avg win / avg loss          n/a
+  Exposure (time in market)   60%
+  Buy & hold return / CAGR    +398.5% / +30.92%
+  Buy & hold max drawdown     -65.3%
+  WARNING: only 3 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2010-08-09 -> 2013-03-01 (645 bars) ==
+  Total return                -2.5%
+  CAGR                        -0.98%
+  Max drawdown                -24.4%
+  CAGR / MaxDD                -0.04
+  Sharpe (daily, rf=0)        0.04
+  Trades                      3
+  Win rate                    33.3%
+  Profit factor               1.04
+  Avg win / avg loss          +21.48% / -10.38%
+  Exposure (time in market)   64%
+  Buy & hold return / CAGR    +59.5% / +20.02%
+  Buy & hold max drawdown     -25.8%
+  WARNING: only 3 trades - not statistically meaningful.
+Strategy: rsi | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 2004-08-19 -> 2010-08-06 (1503 bars) ==
+  Total return                -36.1%
+  CAGR                        -7.23%
+  Max drawdown                -54.6%
+  CAGR / MaxDD                -0.13
+  Sharpe (daily, rf=0)        -0.24
+  Trades                      6
+  Win rate                    50.0%
+  Profit factor               0.27
+  Avg win / avg loss          +4.45% / -16.61%
+  Exposure (time in market)   19%
+  Buy & hold return / CAGR    +398.5% / +30.92%
+  Buy & hold max drawdown     -65.3%
+  WARNING: only 6 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2010-08-09 -> 2013-03-01 (645 bars) ==
+  Total return                +3.3%
+  CAGR                        +1.28%
+  Max drawdown                -19.8%
+  CAGR / MaxDD                0.06
+  Sharpe (daily, rf=0)        0.18
+  Trades                      3
+  Win rate                    66.7%
+  Profit factor               1.48
+  Avg win / avg loss          +6.19% / -8.38%
+  Exposure (time in market)   17%
+  Buy & hold return / CAGR    +59.5% / +20.02%
+  Buy & hold max drawdown     -25.8%
+  WARNING: only 3 trades - not statistically meaningful.
+Strategy: breakout | costs 5 bps/side | fills at next open
+
+== IN-SAMPLE: 2004-08-19 -> 2010-08-06 (1503 bars) ==
+  Total return                +37.2%
+  CAGR                        +5.45%
+  Max drawdown                -25.7%
+  CAGR / MaxDD                0.21
+  Sharpe (daily, rf=0)        0.38
+  Trades                      13
+  Win rate                    46.2%
+  Profit factor               1.77
+  Avg win / avg loss          +16.96% / -8.20%
+  Exposure (time in market)   39%
+  Buy & hold return / CAGR    +398.5% / +30.92%
+  Buy & hold max drawdown     -65.3%
+  WARNING: only 13 trades - not statistically meaningful.
+
+== OUT-OF-SAMPLE: 2010-08-09 -> 2013-03-01 (645 bars) ==
+  Total return                -0.5%
+  CAGR                        -0.18%
+  Max drawdown                -30.5%
+  CAGR / MaxDD                -0.01
+  Sharpe (daily, rf=0)        0.08
+  Trades                      8
+  Win rate                    50.0%
+  Profit factor               1.08
+  Avg win / avg loss          +7.72% / -7.18%
+  Exposure (time in market)   35%
+  Buy & hold return / CAGR    +59.5% / +20.02%
+  Buy & hold max drawdown     -25.8%
+  WARNING: only 8 trades - not statistically meaningful.
