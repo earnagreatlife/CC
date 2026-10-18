@@ -1,0 +1,36 @@
+name: Paper trade (daily forward test)
+
+on:
+  schedule:
+    - cron: "15 22 * * 1-5"   # 22:15 UTC weekdays, after the US close all year round
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trade
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas numpy yfinance
+      - name: Run frozen model
+        working-directory: trading-prompts
+        run: |
+          for t in SPY QQQ; do python3 live.py --ticker "$t"; done
+      - name: Commit signals and reports
+        run: |
+          git config user.name "paper-trade-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add trading-prompts/paper
+          git diff --cached --quiet && exit 0
+          git commit -m "Paper trade update $(date -u +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
